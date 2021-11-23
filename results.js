@@ -1,7 +1,7 @@
 export default [
     {
       id: 1,
-      name: 'Arroz 500mg'
+      name: 'Paracetamol 500mg'
     },
     {
       id: 2,
