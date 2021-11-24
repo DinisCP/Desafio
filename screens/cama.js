@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { TouchableWithoutFeedback, Keyboard, TextInput, Button, View, StyleSheet, Text} from 'react-native';
 import { HomeContainer, InnerContainer, PageTitle, SubTitle, StyledPopUp, PopUpText, StyledFormArea } from "../components/style";
 import { StatusBar } from "expo-status-bar";
@@ -35,7 +35,8 @@ const Cama = () => {
 
     const [range, setRange] = useState("50% ")
     const [circValue, setCircValue] = useState(20);
-    const [estarValue, setEstarValue] = useState("50%")
+    const [estarValue, setEstarValue] = useState("50%");
+
 
     return (
 
