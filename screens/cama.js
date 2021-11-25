@@ -128,12 +128,12 @@ const Cama = ({navigation}) => {
                                     </View>
                                 </Modal>
                             </StyledPopUp>
+
+                            <StyledPopUp onPress={() => navigation.navigate("Notas")}>
+                            <PopUpText>Notas</PopUpText>
+                            </StyledPopUp>
+
                         </StyledFormArea>
-
-                        <StyledPopUp onPress={() => navigation.navigate("Notas")}>
-                        <PopUpText>Notas</PopUpText>
-                        </StyledPopUp>
-
                     </HomeContainer>
                 </InnerContainer>
             </>
