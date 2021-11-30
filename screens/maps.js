@@ -1,7 +1,8 @@
-import { Marker } from 'react-native-maps';
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+
+
 const maps = () => {
   const [mapRegion] = useState({
     latitude: 41.5315,
