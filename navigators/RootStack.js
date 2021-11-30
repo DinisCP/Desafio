@@ -5,6 +5,7 @@ import Registo from "../screens/registo";
 import Cama from "../screens/cama";
 import Notas from "../screens/notas";
 import Medicação from "../screens/medicação";
+import Maps from "../screens/maps";
 import { Octicons } from '@expo/vector-icons';
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -22,6 +23,7 @@ const RootStack = () => {
                 <DrawerNavigator.Screen name="Cama 1" component={Cama} />
                 <DrawerNavigator.Screen name="Medicação" component={Medicação} />
                 <DrawerNavigator.Screen name="Notas" component={Notas} />
+                <DrawerNavigator.Screen name="Maps" component={Maps} />
             </DrawerNavigator.Navigator>
         </NavigationContainer>
     )
