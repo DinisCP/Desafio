@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import { View, Text, FlatList, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { HomeContainer, Card, CardContent } from "../components/style";
 import { StatusBar } from "expo-status-bar";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Colors = {
     primary: "#ffffff",
@@ -18,12 +17,17 @@ const Colors = {
 const Registo = ({navigation}) => {
 
     const [registos, setRegistos] = useState([
-        { title: 'Cama 1', name: 'Francisco de Almeida', key: '1' },
-        { title: 'Cama 2', name: 'Ana Rodrigues', key: '2' },
-        { title: 'Cama 3', name: 'Marta Fernandes', key: '3' },
-        { title: 'Cama 4', name: 'Vitor Carvalho', key: '4' },
-        { title: 'Cama 5', name: 'Ismael Domingues', key: '5' },
+        { title: 'Cama 1', name: 'Francisco de Almeida', key: 'Cama 1' },
+        { title: 'Cama 2', name: 'Ana Rodrigues', key: 'Cama 2' },
+        { title: 'Cama 3', name: 'Marta Fernandes', key: 'Cama 3' },
+        { title: 'Cama 4', name: 'Vitor Carvalho', key: 'Cama 4' },
+        { title: 'Cama 5', name: 'Ismael Domingues', key: 'Cama 5' },
     ]);
+
+    const [currentDate, setCurrentDate] = useState(new Date().toLocaleString());
+
+    const updateDate = () => setCurrentDate(new Date().toLocaleString());
+
 
     return (
         <>
@@ -35,14 +39,16 @@ const Registo = ({navigation}) => {
                         <FlatList 
                             data={registos}
                             renderItem={({item}) => (
-                                <TouchableOpacity onPress={() => navigation.navigate('Cama 1')}>
+                                <TouchableOpacity onPress={() => {navigation.navigate(item.key)}}>
                                     <Card>
                                         <CardContent>
                                             <Text>{item.title}</Text>
                                             <Text>{item.name}</Text>
+                                            <Text style={{textAlign: "right", fontSize: 10, color: Colors.green}}>{ currentDate }</Text>
                                         </CardContent>
                                     </Card>
                                 </TouchableOpacity>
+                                
                             )}
                         />
                     </View>
@@ -64,6 +70,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: Colors.brand,
         padding: 10,
+        paddingBottom: 30,
     },
     StyledFormArea: {
         width: '90%',

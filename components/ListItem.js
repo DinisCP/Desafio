@@ -1,9 +1,25 @@
-import React from 'react';
-import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { TouchableOpacity, View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { PageLogo } from './style';
+import Modal from 'react-native-modal';
 
 const ListItem = ({ data }) => {
+
+  const [fModal, setFModal] = React.useState(false);
+  const handleFModal = () => setFModal(() => !fModal);
+
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity onPress={handleFModal} style={styles.item}>
+      <Modal isVisible={fModal}>
+          <View style={{
+                 flex: 1,
+                 lexDirection: 'column',
+                 justifyContent: 'center',
+                 alignItems: 'center'}}>
+            <PageLogo resizeMode="cover" source={ require('../assets/paracetamol.jpg') }/>
+            <Button title="Voltar" onPress={handleFModal}/>
+          </View>
+      </Modal>
       <View style={styles.itemInfo}>
         <Text style={styles.itemP1}>{data.name}</Text>
       </View>
