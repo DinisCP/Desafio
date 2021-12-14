@@ -12,12 +12,21 @@ const maps = () => {
   });
   return (
     <View style={styles.container}>
-      <MapView
-        style={{ alignSelf: 'stretch', height: '100%' }}
-        region={mapRegion}
-      >
-        <Marker coordinate={mapRegion} title='Marker' />
-      </MapView>
+    <MapView
+  ref={mapRef}
+  style={styles.map}
+  initialRegion={mapRegion}
+  onRegionChangeComplete={(region) => setRegion(region)}
+>
+  <Marker coordinate={mapRegion} />
+  {/*marker to a nearby location */}
+  <Marker
+    coordinate={{
+      latitude: 41.53351,
+      longitude: -8.61599,
+    }}
+  />
+</MapView>;
     </View>
   );
 };
