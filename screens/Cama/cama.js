@@ -41,7 +41,7 @@ const Cama = ({navigation}) => {
     const saveData = async () => {
         try {
           await AsyncStorage.setItem(STORE_FC, fc)
-          console.log('Data was saved successfully')
+          console.log('Data was saved successfully', {fc})
         } catch (e) {
           alert('Failed to save the data to the storage')
         }
