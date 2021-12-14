@@ -1,12 +1,11 @@
 import React from 'react';
-import { useState, useEffect, TextField } from 'react';
+import { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   View,
   TextInput,
   FlatList,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import ListItem from '../components/ListItem.js';
@@ -31,24 +30,27 @@ const App = () => {
   
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.searchArea}>
-        <TextInput
-          style={styles.input}
-          placeholder="Pesquise um medicamento"
-          placeholderTextColor="#e6e6e6"
-          value={searchText}
-          onChangeText={(t) => setSearchText(t)}
-        />
-      </View>
+    <>
+      <StatusBar style='dark'/>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.searchArea}>
+            <TextInput
+              style={styles.input}
+              placeholder="Pesquise um medicamento"
+              placeholderTextColor="#e6e6e6"
+              value={searchText}
+              onChangeText={(t) => setSearchText(t)}
+            />
+          </View>
 
-      <FlatList
-        data={list}
-        style={styles.list}
-        renderItem={({ item }) => <ListItem data={item} />}
-        keyExtractor={(item) => item.id}
-      />
-    </SafeAreaView>
+          <FlatList
+            data={list}
+            style={styles.list}
+            renderItem={({ item }) => <ListItem data={item} />}
+            keyExtractor={(item) => item.id}
+          />
+        </SafeAreaView>
+      </>
   );
 };
 

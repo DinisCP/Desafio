@@ -16,7 +16,7 @@ const ListItem = ({ data }) => {
                  lexDirection: 'column',
                  justifyContent: 'center',
                  alignItems: 'center'}}>
-            <PageLogo resizeMode="cover" source={ require('../assets/paracetamol.jpg') }/>
+            <PageLogo resizeMode="cover" source={ require('../assets/paracetamol.jpg')} />
             <Button title="Voltar" onPress={handleFModal}/>
           </View>
       </Modal>
