@@ -32,8 +32,7 @@ const Cama4 = ({navigation}) => {
     const handle4Modal = () => setIsFourthtModalVisible(() => !isFourthModalVisible); // Pressing the button will call handleModal and return the opposite state.
 
     
-    const [range, setRange] = useState("50% ")
-    const [circValue, setCircValue] = useState(20);
+    const [circValue, setCircValue] = useState(0);
 
 
     return (
