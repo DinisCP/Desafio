@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { TouchableWithoutFeedback, Keyboard, TextInput, Button, View, StyleSheet, Text} from 'react-native';
 import { HomeContainer, InnerContainer, PageTitle, SubTitle, StyledPopUp, PopUpText, StyledFormArea } from "../../components/style";
 import { StatusBar } from "expo-status-bar";
 import Modal from "react-native-modal";
 import CircularSlider from 'rn-circular-slider';
 import { AirbnbRating } from "react-native-ratings";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Colors = {
     primary: "#ffffff",
@@ -18,6 +19,7 @@ const Colors = {
 
 const {primary, secondary, tertiary, darkLight, brand, green, red} = Colors;
 
+const STORE_FC = '@save_fc'
 
 const Cama = ({navigation}) => {
 
@@ -34,6 +36,44 @@ const Cama = ({navigation}) => {
     
     const [circValue, setCircValue] = useState(0);
 
+    const [fc, setFC] = useState('');
+
+    const saveData = async () => {
+        try {
+          await AsyncStorage.setItem(STORE_FC, fc)
+          console.log('Data was saved successfully')
+        } catch (e) {
+          alert('Failed to save the data to the storage')
+        }
+      }
+
+    const readData = async () => {
+        try {
+          const userFC = await AsyncStorage.getItem(STORE_FC)
+      
+          if (userFC !== null) {
+            setFC(userFC)
+          }
+        } catch (e) {
+          alert('Failed to fetch the data from storage')
+        }
+      }
+
+    useEffect(() => {
+
+        readData()
+
+      }, [])
+
+    
+    const onChangeText = userFC => setFC(userFC)
+
+    const onSubmitEditing = () => {
+        if (!fc) return
+      
+        saveData(fc)
+        setFC('')
+      }
 
     return (
 
@@ -57,8 +97,8 @@ const Cama = ({navigation}) => {
                                                     alignItems: 'center',
                                                     height: '50%', 
                                                     backgroundColor: Colors.secondary}}>
-                                        <TextInput style={styles.TextBox} placeholder="BPM" textAlign="center"></TextInput>
-                                        <Button title="Guardar" onPress={handle1Modal} color={Colors.brand} />
+                                        <TextInput style={styles.TextBox} placeholder="BPM" value={fc} onChangeText={onChangeText} textAlign="center"></TextInput>
+                                        <Button title="Guardar" onPress={handle1Modal, onSubmitEditing} color={Colors.brand} />
                                     </View>
                                 </Modal>
                             </StyledPopUp>
