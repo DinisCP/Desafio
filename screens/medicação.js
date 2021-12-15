@@ -1,12 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import {
-  SafeAreaView,
-  View,
-  TextInput,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, View, TextInput, FlatList, StyleSheet} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import ListItem from '../components/ListItem.js';
 import results from '../results';
