@@ -17,6 +17,12 @@ const maps = () => {
         region={mapRegion}
       >
         <Marker coordinate={mapRegion} title='Marker' />
+           <Marker
+    coordinate={{
+      latitude: 41.53351,
+      longitude: -8.61599,
+    }}
+  />
       </MapView>
     </View>
   );
