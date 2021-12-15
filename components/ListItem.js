@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import React from 'react';
+import { TouchableOpacity, View, Text, StyleSheet, Button } from 'react-native';
 import { PageLogo } from './style';
 import Modal from 'react-native-modal';
 
