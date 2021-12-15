@@ -7,8 +7,8 @@ const maps = () => {
   const [mapRegion] = useState({
     latitude: 41.5315,
     longitude: -8.61896,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
+    latitudeDelta: 0.1922,
+    longitudeDelta: 0.0821,
   });
   return (
     <View style={styles.container}>
